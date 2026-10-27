@@ -1,0 +1,19 @@
+groups:
+  - name: dc-lab
+    rules:
+      - alert: LabNodeExporterDown
+        expr: up{job="node"} == 0
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: 'Node Exporter scrape failed on {{ $labels.host }}'
+          description: 'Check the exporter service, route, and firewall. A failed scrape alone does not prove the VM is down.'
+      - alert: LabHTTPUnavailable
+        expr: probe_success{job="http"} == 0
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: 'Lab HTTP probe failed for {{ $labels.instance }}'
+          description: 'Check NGINX, the routed path, and TCP port 80.'

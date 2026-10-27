@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LS_Store
+
+# editor/tooling
+.vscode/
+*.swp
+*.swo
+
+# logs and temp files
+*.log
+*.tmp
+*.bak
+
+# local lab artifacts (reviewed screenshots may be committed)
+artifacts/
+backup/
+
+# encrypted or sensitive lab data
+*.pem
+*.key
+*.csr

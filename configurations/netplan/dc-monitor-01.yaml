@@ -1,0 +1,13 @@
+# Change the interface name to match your monitor's lab-monitor NIC.
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s2:
+      dhcp4: false
+      dhcp6: false
+      accept-ra: false
+      addresses: [10.10.30.10/24]
+      routes:
+        - to: 10.10.20.0/24
+          via: 10.10.30.1
